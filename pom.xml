@@ -51,6 +51,20 @@
       <version>2.1.210</version>
     </dependency>
 
+    <!-- SUPPLY CHAIN — CVE-2026-50010/50011/50020/50560: Netty < 4.1.135 TLS/HTTP/Redis flaws -->
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-handler</artifactId>
+      <version>4.1.100.Final</version>
+    </dependency>
+
+    <!-- SUPPLY CHAIN — CVE-2026-41840/41842: Spring WebFlux multipart + versioned-resource DoS -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webflux</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>

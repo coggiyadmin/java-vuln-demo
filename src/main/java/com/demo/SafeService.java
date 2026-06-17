@@ -16,9 +16,9 @@ import org.owasp.esapi.ESAPI;
  *
  * This file flows user input through documented sanitizers to each sink type.
  * The scanner MUST produce ZERO security findings here. Any finding is a
- * FALSE POSITIVE and should be filed against cognium-dev.
+ * FALSE POSITIVE.
  *
- * Sanitizers exercised (from circle-ir config-loader.ts):
+ * Sanitizers exercised:
  *   sql_injection      → PreparedStatement.setString
  *   xss                → Encode.forHtml (OWASP Java Encoder)
  *   path_traversal     → File.getCanonicalPath + prefix check

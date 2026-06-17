@@ -7,12 +7,11 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * ZERO-FP RESEARCH CORPUS — patterns that LOOK tainted but are provably safe.
+ * ZERO-FP FALSE-POSITIVE CORPUS — patterns that LOOK tainted but are provably safe.
  *
  * Each method models a documented hard case for taint analysis (the categories
- * OWASP Benchmark / CodeQL precision research use to measure false-positive
- * rate). The scanner MUST produce ZERO security findings here. Any finding is a
- * FALSE POSITIVE — our product's #1 USP is zero FP.
+ * OWASP Benchmark uses to measure false-positive rate). The scanner MUST produce
+ * ZERO security findings here. Any finding is a FALSE POSITIVE.
  *
  * Categories:
  *   1. Type-cast sanitization   — int/long/UUID/enum cannot carry injection

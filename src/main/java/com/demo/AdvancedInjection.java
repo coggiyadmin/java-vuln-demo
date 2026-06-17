@@ -13,7 +13,7 @@ import ognl.Ognl;
 import freemarker.template.*;
 
 /**
- * DEMO FILE — intentional vulnerabilities modelled on famous real-world CVEs.
+ * DEMO FILE — intentional vulnerabilities for security scanner showcase.
  *
  * Each handler reproduces the vulnerable *shape* of a high-profile CVE class so
  * the scanner's expression/template/JNDI/archive sinks get exercised.
