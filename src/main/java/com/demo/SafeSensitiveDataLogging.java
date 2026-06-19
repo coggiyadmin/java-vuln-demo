@@ -13,6 +13,7 @@ public class SafeSensitiveDataLogging {
     public void login(HttpServletRequest request) {
         String user = request.getParameter("user");
         request.getParameter("password");          // used for auth, never logged
-        log.info("login attempt user=" + user);    // no credential in the log
+        String safeUser = user == null ? "" : user.replaceAll("[\\r\\n]", "");
+        log.info("login attempt user=" + safeUser);  // no credential, no log injection
     }
 }

@@ -15,7 +15,9 @@ public class SafeInsufficientLogging {
         String target = request.getParameter("userId");
         String actor = request.getHeader("X-Actor");
         doDelete(target);
-        log.info("audit action=delete-user actor=" + actor + " target=" + target + " outcome=ok");
+        String safeActor = actor == null ? "" : actor.replaceAll("[\\r\\n]", "");
+        String safeTarget = target == null ? "" : target.replaceAll("[\\r\\n]", "");
+        log.info("audit action=delete-user actor=" + safeActor + " target=" + safeTarget + " outcome=ok");
     }
 
     private void doDelete(String id) {}
