@@ -1,0 +1,11 @@
+<!-- IL-1 polyglot — Thymeleaf template paired with InteropThymeleaf.java.
+     th:utext emits ${query} as UNESCAPED markup (CWE-79). The escaped form would
+     be th:text. SINK lives here; taint arrives from the controller model attribute. -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <h1>Results</h1>
+  <!-- SINK (CWE-79): th:utext = unescaped output of attacker-controlled ${query}. -->
+  <p th:utext="${query}">placeholder</p>
+</body>
+</html>
