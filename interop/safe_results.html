@@ -1,0 +1,11 @@
+<!-- IL-1 polyglot — SAFE Thymeleaf template paired with SafeInteropThymeleaf.java.
+     th:text emits ${query} with Thymeleaf's default HTML escaping, so attacker
+     markup is rendered as text. ZERO findings expected. -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <h1>Results</h1>
+  <!-- Safe: th:text = escaped output (vs th:utext in the vulnerable mirror). -->
+  <p th:text="${query}">placeholder</p>
+</body>
+</html>
