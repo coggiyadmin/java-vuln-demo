@@ -1,0 +1,14 @@
+<!-- SAFE — permissive only -->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.demo</groupId>
+  <artifactId>app</artifactId>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.14.0</version>
+    </dependency>
+  </dependencies>
+  <licenses><license><name>Apache-2.0</name></license></licenses>
+</project>
