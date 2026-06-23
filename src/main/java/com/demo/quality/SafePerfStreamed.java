@@ -4,12 +4,17 @@ import java.nio.file.*;
 import java.util.stream.*;
 import java.io.*;
 
-/** SAFE mirror — streamed lines from fixed log dir with bounded id. */
+/** SAFE mirror — streamed lines from fixed allowlisted log files only. */
 public class SafePerfStreamed {
-    private static final Path LOG_DIR = Path.of("/var/log/app");
+    private static final Path ACCESS_LOG = Path.of("/var/log/app/access.log");
+    private static final Path ERROR_LOG = Path.of("/var/log/app/error.log");
 
-    public Stream<String> processLog(String logId) throws IOException {
-        if (!logId.matches("[a-z0-9_-]+")) throw new SecurityException("invalid id");
-        return Files.lines(LOG_DIR.resolve(logId + ".log")).limit(1000);
+    public Stream<String> processLog(String logKind) throws IOException {
+        Path target = switch (logKind) {
+            case "access" -> ACCESS_LOG;
+            case "error" -> ERROR_LOG;
+            default -> throw new SecurityException("invalid log kind");
+        };
+        return Files.lines(target).limit(1000);
     }
 }
