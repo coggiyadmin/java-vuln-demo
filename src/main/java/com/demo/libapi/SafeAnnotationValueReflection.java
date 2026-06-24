@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#159) — reflection target comes from a hardcoded annotation
+// FP-target (upstream cognium-dev#159) — reflection target comes from a hardcoded annotation
 // .value() constant, fully constant-propagable, not user input.
 package com.demo.libapi;
 

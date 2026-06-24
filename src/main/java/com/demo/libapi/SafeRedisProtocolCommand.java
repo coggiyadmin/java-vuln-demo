@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#170, CRITICAL) — executeCommand is a RESP *protocol* verb
+// FP-target (upstream cognium-dev#170, CRITICAL) — executeCommand is a RESP *protocol* verb
 // (GET/SET), never an OS command. Must not be flagged command_injection (CWE-78).
 package com.demo.libapi;
 

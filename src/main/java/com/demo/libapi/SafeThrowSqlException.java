@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#157) — `throw new SQLException(msg)` is an error path, not a
+// FP-target (upstream cognium-dev#157) — `throw new SQLException(msg)` is an error path, not a
 // query execution; sql_injection must not resolve its sink to this line.
 package com.demo.libapi;
 

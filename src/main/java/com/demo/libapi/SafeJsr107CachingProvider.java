@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#168) — JSR-107 spec-mandated ClassLoader.loadClass of a
+// FP-target (upstream cognium-dev#168) — JSR-107 spec-mandated ClassLoader.loadClass of a
 // provider name resolved from the classpath, not user input.
 package com.demo.libapi;
 

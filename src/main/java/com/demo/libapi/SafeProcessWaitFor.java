@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#124) — Process.waitFor() blocks for completion; it executes
+// FP-target (upstream cognium-dev#124) — Process.waitFor() blocks for completion; it executes
 // nothing and must not be flagged command_injection.
 package com.demo.libapi;
 

@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#155) — date parsing is not code execution.
+// FP-target (upstream cognium-dev#155) — date parsing is not code execution.
 package com.demo.libapi;
 
 import java.time.LocalDate;

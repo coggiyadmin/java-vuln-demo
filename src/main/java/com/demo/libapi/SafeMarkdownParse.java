@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#155) — a Markdown parser's parse() produces an AST, it does
+// FP-target (upstream cognium-dev#155) — a Markdown parser's parse() produces an AST, it does
 // not execute code. Must not be flagged code_injection.
 package com.demo.libapi;
 

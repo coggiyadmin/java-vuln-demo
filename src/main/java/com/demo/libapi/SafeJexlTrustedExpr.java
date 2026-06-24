@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#161) — JEXL evaluates a HARDCODED expression, not user
+// FP-target (upstream cognium-dev#161) — JEXL evaluates a HARDCODED expression, not user
 // input. The engine must not flag library eval surfaces when the expression is constant.
 package com.demo.libapi;
 

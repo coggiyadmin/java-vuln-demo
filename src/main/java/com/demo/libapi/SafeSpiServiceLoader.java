@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#165) — ServiceLoader loads classes named in trusted
+// FP-target (upstream cognium-dev#165) — ServiceLoader loads classes named in trusted
 // META-INF/services files shipped with the app, not from user input. Not reflection injection.
 package com.demo.libapi;
 

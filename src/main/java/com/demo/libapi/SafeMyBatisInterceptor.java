@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-ai#111) — SQL text built inside a MyBatis Interceptor is
+// FP-target (upstream cognium-ai#111) — SQL text built inside a MyBatis Interceptor is
 // framework-internal plumbing operating on already-parameterized statements, not app sqli.
 package com.demo.libapi;
 

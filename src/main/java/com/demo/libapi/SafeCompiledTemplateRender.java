@@ -1,4 +1,4 @@
-// FP-target (elarasu cognium-dev#156) — rendering a PRECOMPILED, app-owned template with a
+// FP-target (upstream cognium-dev#156) — rendering a PRECOMPILED, app-owned template with a
 // data model is not code injection; the template text is trusted, only data is bound.
 package com.demo.libapi;
 
