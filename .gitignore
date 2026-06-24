@@ -1,0 +1,11 @@
+# Java build artifacts
+target/
+build/
+.gradle/
+*.class
+*.jar
+*.war
+
+# editor / backup
+*.swp
+*.bak
