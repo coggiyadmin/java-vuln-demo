@@ -1,12 +1,11 @@
 package com.demo.flow.tier1.open_redirect;
-
 import javax.servlet.http.*;
-import java.util.Set;
+import java.sql.*;
 public class V08WrongContextTp {
-    private static final Set<String> ALLOWED = Set.of("/dashboard", "/profile");
     public void go(HttpServletRequest req, HttpServletResponse res) throws Exception {
         String nxt = req.getParameter("next");
-        if (!ALLOWED.contains(nxt)) throw new SecurityException("forbidden");
+        DriverManager.getConnection("jdbc:sqlite::memory:")
+          .createStatement().execute("SELECT * FROM u WHERE n='" + nxt + "'");
         res.sendRedirect(nxt);
     }
 }

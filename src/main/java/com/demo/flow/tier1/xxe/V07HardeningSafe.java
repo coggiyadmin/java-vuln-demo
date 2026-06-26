@@ -1,11 +1,11 @@
 package com.demo.flow.tier1.xxe;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.*;
+import javax.servlet.http.*;
 public class V07HardeningSafe {
     public void parse(HttpServletRequest req) throws Exception {
-        var factory = DocumentBuilderFactory.newInstance();
-        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-        factory.newDocumentBuilder().parse(req.getInputStream());
+        if (req.getContentLengthLong() > 65536) throw new SecurityException();
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        dbf.newDocumentBuilder().parse(req.getInputStream());
     }
 }

@@ -1,9 +1,8 @@
 package com.demo.flow.tier1.deserialization;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.servlet.http.HttpServletRequest;
+import java.io.*;
+import javax.servlet.http.*;
 public class V08WrongContextTp {
-    public Object read(HttpServletRequest req) throws Exception {
-        return new ObjectMapper().readValue(req.getParameter("j"), Object.class);
+    public void load(HttpServletRequest req) throws Exception {
+        new ObjectInputStream(req.getInputStream()).readObject();
     }
 }

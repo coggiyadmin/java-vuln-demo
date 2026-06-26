@@ -1,11 +1,11 @@
 package com.demo.flow.tier1.log_injection;
-
-import java.util.logging.Logger;
-import javax.servlet.http.HttpServletRequest;
+import org.slf4j.*;
+import javax.servlet.http.*;
 public class V07HardeningSafe {
-    private static final Logger LOG = Logger.getLogger("app");
-    public void login(HttpServletRequest req) {
+    private static final Logger log = LoggerFactory.getLogger(V07HardeningSafe.class);
+    public void logUser(HttpServletRequest req) {
         String user = req.getParameter("user");
-        LOG.info("login user=" + user);
+        if (user.length() > 64) throw new SecurityException();
+        log.info("user={}", user);
     }
 }

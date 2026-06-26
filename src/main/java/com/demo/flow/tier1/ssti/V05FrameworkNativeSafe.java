@@ -1,13 +1,11 @@
 package com.demo.flow.tier1.ssti;
-
-import javax.servlet.http.*;
-import org.apache.velocity.VelocityContext;
+import org.apache.velocity.*;
 import org.apache.velocity.app.Velocity;
-import java.io.StringWriter;
+import javax.servlet.http.*;
 public class V05FrameworkNativeSafe {
-    public void render(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public void render(HttpServletRequest req) throws Exception {
         VelocityContext ctx = new VelocityContext();
         ctx.put("n", req.getParameter("n"));
-        Velocity.evaluate(ctx, res.getWriter(), "v", "<p>$n</p>");
+        Velocity.evaluate(ctx, req.getWriter(), "v", "<p>$n</p>");
     }
 }

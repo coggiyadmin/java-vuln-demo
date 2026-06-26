@@ -1,11 +1,11 @@
 package com.demo.flow.tier1.xxe;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.*;
+import javax.servlet.http.*;
 public class V06CustomWrapperSafe {
+    static String companySanitize(String x) { return x.replace("<!ENTITY", ""); }
     public void parse(HttpServletRequest req) throws Exception {
-        var factory = DocumentBuilderFactory.newInstance();
-        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-        factory.newDocumentBuilder().parse(req.getInputStream());
+        String raw = companySanitize(new String(req.getInputStream().readAllBytes()));
+        DocumentBuilderFactory.newInstance().newDocumentBuilder()
+          .parse(new java.io.ByteArrayInputStream(raw.getBytes()));
     }
 }

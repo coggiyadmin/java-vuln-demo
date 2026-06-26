@@ -1,11 +1,12 @@
 package com.demo.flow.tier1.xxe;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.*;
+import javax.servlet.http.*;
+import java.sql.*;
 public class V08WrongContextTp {
     public void parse(HttpServletRequest req) throws Exception {
-        var factory = DocumentBuilderFactory.newInstance();
-        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-        factory.newDocumentBuilder().parse(req.getInputStream());
+        String n = req.getParameter("n");
+        DriverManager.getConnection("jdbc:sqlite::memory:")
+          .createStatement().execute("SELECT * FROM u WHERE n='" + n + "'");
+        DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(req.getInputStream());
     }
 }

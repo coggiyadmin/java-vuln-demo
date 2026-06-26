@@ -1,11 +1,11 @@
 package com.demo.flow.tier1.ldap;
-
 import javax.naming.directory.*;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
 public class V07HardeningSafe {
-    public void lookup(HttpServletRequest req, DirContext ctx) throws Exception {
+    public void search(HttpServletRequest req) throws Exception {
         String uid = req.getParameter("uid");
-        if (!uid.matches("[a-zA-Z0-9_-]+")) throw new SecurityException("forbidden");
-        ctx.search("ou=people", "(uid=" + uid + ")", new SearchControls());
+        if (uid == null || uid.length() > 64 || !uid.matches("[a-zA-Z0-9_-]+"))
+            throw new SecurityException();
+        new InitialDirContext().search("dc=ex", "(uid=" + uid + ")", new SearchControls());
     }
 }
