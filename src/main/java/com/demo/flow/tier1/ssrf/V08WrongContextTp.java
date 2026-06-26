@@ -1,13 +1,9 @@
 package com.demo.flow.tier1.ssrf;
-
-import java.net.*;
-import java.util.Set;
-import javax.servlet.http.*;
+import java.net.*; import javax.servlet.http.*;
+import org.apache.commons.text.StringEscapeUtils;
 public class V08WrongContextTp {
-    private static final Set<String> ALLOWED = Set.of("api.internal.example.com");
     public void fetch(HttpServletRequest req) throws Exception {
-        URL url = new URL(req.getParameter("url"));
-        if (!ALLOWED.contains(url.getHost())) throw new SecurityException("forbidden");
-        url.openStream();
+        String u = StringEscapeUtils.escapeHtml4(req.getParameter("url"));
+        new URL(u).openStream(); // HTML escape wrong for SSRF TP
     }
 }

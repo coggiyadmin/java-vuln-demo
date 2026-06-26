@@ -1,12 +1,9 @@
 package com.demo.flow.tier1.path_traversal;
-
-import java.io.*; import java.nio.file.*;
-import javax.servlet.http.*;
+import java.io.*; import javax.servlet.http.*;
 public class V06CustomWrapperSafe {
+    static String companySanitize(String p) { return p.replace("..", ""); }
     public String read(HttpServletRequest req) throws Exception {
-        Path root = Path.of("/data");
-        Path full = root.resolve(req.getParameter("p")).normalize();
-        if (!full.startsWith(root)) throw new SecurityException();
-        return Files.readString(full);
+        String p = companySanitize(req.getParameter("p"));
+        return new String(new FileInputStream("/data/" + p).readAllBytes());
     }
 }

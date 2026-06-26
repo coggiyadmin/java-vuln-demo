@@ -1,9 +1,8 @@
 package com.demo.flow.tier1.code_injection;
-
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
 public class V06CustomWrapperSafe {
+    static String companySanitize(String x) { return x.replace("__", "").replace(";", ""); }
     public String run(HttpServletRequest req) {
-        String x = req.getParameter("x");
-        return switch (x) { case "daily" -> "ok"; case "weekly" -> "ok"; default -> throw new SecurityException(); };
+        return companySanitize(req.getParameter("x"));
     }
 }

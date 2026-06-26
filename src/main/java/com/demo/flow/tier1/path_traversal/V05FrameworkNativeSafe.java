@@ -1,7 +1,5 @@
 package com.demo.flow.tier1.path_traversal;
-
-import java.io.*; import java.nio.file.*;
-import javax.servlet.http.*;
+import java.nio.file.*; import javax.servlet.http.*;
 public class V05FrameworkNativeSafe {
     public String read(HttpServletRequest req) throws Exception {
         Path root = Path.of("/data");
