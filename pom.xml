@@ -93,6 +93,13 @@
       <version>2.3.32</version>
     </dependency>
 
+    <!-- FP-target real types — cognium-dev #156 (Velocity compiled render) -->
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+      <version>2.3</version>
+    </dependency>
+
   </dependencies>
 
   <build>
